@@ -1,0 +1,16 @@
+@import '../../../../styles/variables.scss';
+
+entry{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  .entry-body{
+    flex: 1;
+  }
+  .entry-footer{
+    height: 48px;
+    border-top: 1px solid $gray;
+  }
+}
