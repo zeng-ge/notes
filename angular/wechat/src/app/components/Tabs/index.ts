@@ -15,6 +15,6 @@ export class Tabs implements AfterContentInit{
   @ContentChildren(Tab) tabItems: QueryList<Tab>;
 
   ngAfterContentInit() {
-    console.log(this.tabItems)
+    // console.log(this.tabItems)
   }
 }
