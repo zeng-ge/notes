@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { Homepage } from './containers/Homepage'
+import { FormButton } from '../../components/FormButton';
 
 const routes: Routes = [
   { path: '', component: Homepage },
@@ -9,7 +10,17 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [Homepage],
+  /**
+   * 在最外层的module中声明FormButton后在Homepage里面还是无法使用，
+   * 需要这该模块显示的声明，模块的声明并不会从上层module中继承
+   * 可以定义一个公共模块，如
+   * ComponentModule: {
+   *  declarations: [FormButton],
+   *  exports: [FormButton]
+   * }
+   * 然后在需要的Module里面单独导入
+   */
+  declarations: [Homepage, FormButton],
   imports: [RouterModule.forRoot(routes)],
   /**
    * export之前必须先declaration

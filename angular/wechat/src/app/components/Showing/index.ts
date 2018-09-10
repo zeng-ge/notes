@@ -1,6 +1,7 @@
 import { Directive, ViewContainerRef, TemplateRef, Input, ContentChild, AfterContentInit, ElementRef } from "@angular/core";
 import { Indicator } from "../Indicator";
 import { Content } from "@angular/compiler/src/render3/r3_ast";
+import { ViewRef } from "@angular/core/src/render3/view_ref";
 
 @Directive({
   selector: '[showing]'
