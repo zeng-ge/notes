@@ -6,8 +6,8 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   template: `<button (click)="onClick($event)">{{content}}-{{desc}}</button>`
 })
 export class FormButton{
-  @Input('text') content: String;
-  @Input('desc') desc: String;
+  @Input('text') content: string;
+  @Input('desc') desc: string;
   /**
    * 这里不能直接用click，会与DOM本身的click事件重名，
    * 会倒致事件触发两次，组件内触发一次，外部引用的地方触发一次，都是由DOM本身触发，
@@ -21,7 +21,7 @@ export class FormButton{
    * EventEmitter本质上是个Subject，emit时可以相当于执行next()
    *
    */
-  @Output('formClick') clickEvent: EventEmitter<String> = new EventEmitter<String>()
+  @Output('formClick') clickEvent: EventEmitter<string> = new EventEmitter<string>()
 
   onClick(event): void {
     console.log('native click', event)

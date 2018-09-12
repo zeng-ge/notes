@@ -8,8 +8,8 @@ import { FormButton } from '../../../../components/FormButton';
   encapsulation: ViewEncapsulation.None,
 })
 export class Homepage{
-  buttonText: String = 'input & output'
-  buttonDesc: String = 'ddddd'
+  buttonText: string = 'input & output'
+  buttonDesc: string = 'ddddd'
   onClick(message: string): void {
     console.log('output', message)
   }
