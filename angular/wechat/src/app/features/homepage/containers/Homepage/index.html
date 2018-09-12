@@ -1,2 +1,8 @@
 <h1>homepage</h1>
-<form-button text="input & output" (formClick)="onClick($event)"></form-button>
+<form-button [text]="buttonText" [desc]="buttonDesc" (formClick)="onClick($event)"></form-button>
+<div (click)="clickParent($event)">
+  <div>Parent</div>
+  <a (click)="clickChild($event)" href="https://google.com">
+    Child
+  </a>
+</div>

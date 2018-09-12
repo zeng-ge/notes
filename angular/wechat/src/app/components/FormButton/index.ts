@@ -3,10 +3,11 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'form-button',
-  template: `<button (click)="onClick($event)">{{content}}</button>`
+  template: `<button (click)="onClick($event)">{{content}}-{{desc}}</button>`
 })
 export class FormButton{
   @Input('text') content: String;
+  @Input('desc') desc: String;
   /**
    * 这里不能直接用click，会与DOM本身的click事件重名，
    * 会倒致事件触发两次，组件内触发一次，外部引用的地方触发一次，都是由DOM本身触发，
