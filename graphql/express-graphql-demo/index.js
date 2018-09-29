@@ -29,7 +29,7 @@ var schema = buildSchema(`
 `);
 
 var root = {  
-  gamer: (args, a, b, c) => {
+  gamer: (args, context, b, c) => {
     return persons[args.id];
   },
 };
