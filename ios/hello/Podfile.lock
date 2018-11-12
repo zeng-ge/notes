@@ -1,0 +1,16 @@
+PODS:
+  - ObjectiveSugar (1.1.0)
+
+DEPENDENCIES:
+  - ObjectiveSugar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ObjectiveSugar
+
+SPEC CHECKSUMS:
+  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+
+PODFILE CHECKSUM: 76ee7181b196ceb390cd87e3f0f27b18fe9181d0
+
+COCOAPODS: 1.5.3

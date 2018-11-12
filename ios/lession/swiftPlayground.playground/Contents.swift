@@ -1,4 +1,22 @@
-import UIKit
+import Foundation
+
+let date = Date()
+let calendar = Calendar.current
+let year = calendar.component(.year, from: date)
+let month = calendar.component(.month, from: date)
+let day = calendar.component(.day, from: date)
+
+//print("\(year)-\(month)-\(day)")
+
+let dateformat = DateFormatter()
+let timeformat = DateFormatter()
+dateformat.dateFormat = "EEEE, MMMM dd"
+timeformat.dateFormat = "HH:mm"
+let dateString = dateformat.string(from: date)
+let timeString = timeformat.string(from: date)
+//print(dateString)
+//print(timeString)
+
 
 struct Product{
     var barcode: String
@@ -63,7 +81,7 @@ func parseBarcode(barcode: String) -> (barcode: String, number: Int8) {
     if barcode.contains("-") {
         var codes = barcode.split(separator: "-")
         code = String(codes[0])
-        number = Int8(String(codes[1]))! //强制转化并保证一定有值，不加报错alue of optional type 'Int8?' must be unwrapped to a value of type 'Int8'
+        number = Int8(String(codes[1]))! //解包，强制转化并保证一定有值，不加报错alue of optional type 'Int8?' must be unwrapped to a value of type 'Int8'
     }
     
     return (barcode: code, number)
