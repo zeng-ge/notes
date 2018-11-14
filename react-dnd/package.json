@@ -1,0 +1,9 @@
+{
+  "name": "react-dnd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react-dnd": "^6.0.0"
+  }
+}
