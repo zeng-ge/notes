@@ -1,20 +1,49 @@
 <template>
   <div id="app">
-    <Welcome />
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <abc />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TodoList /> -->
+    <button @click="onClick">count {{a.b.c}}</button>
+    <!-- <div v-highlight>abc</div> -->
+    <!-- <Counter /> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import Welcome from './components/Welcome.js'
+// import TodoList from './components/TodoList.vue'
+// import Highlight from './components/Highlight.vue'
+// import Counter from './components/Counter.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    Welcome
+    // HelloWorld,
+    abc: Welcome,
+    // TodoList,
+    // Counter
+  },
+  // directives: {
+  //   Highlight
+  // },
+  data: function(){
+    return {
+      a: {
+        b: {
+          c: 1
+        }
+      },
+      count: 1
+    }
+  },
+  mounted: function() {
+    console.log('app mounted')
+  },
+  methods: {
+    onClick: function(){
+      this.a.b.c += 1
+    }
   }
 }
 </script>
