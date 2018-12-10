@@ -1,3 +1,12 @@
 .abc{
   color: red;
+  &.b{
+    color: blue;
+  }
+  &--a{//&后面跟中划线生成的class是这样的.abc--a{}，不是.abc .abc--a{}，用&可以减少嵌套
+    color: white;
+  }
+  .c{
+    color: purple;
+  }
 }
