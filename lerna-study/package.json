@@ -1,0 +1,10 @@
+{
+  "name": "lerna-study",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap --hoist"
+  },
+  "devDependencies": {
+    "lerna": "3.6.0"
+  }
+}

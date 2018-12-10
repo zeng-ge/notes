@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "ui": "^1.0.2",
-    "utils": "^1.0.1"
+    "lerna-study-ui": "^1.0.1",
+    "lerna-study-utils": "^1.0.0"
   }
 }

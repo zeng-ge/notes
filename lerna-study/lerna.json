@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "publish": {
+    "ignore": [
+      "packages/web/**"
+    ]
+  },
+  "command": {
+    "init": {
+      "exact": true
+    }
+  },
+  "version": "independent"
+}

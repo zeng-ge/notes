@@ -1,0 +1,10 @@
+0 silly argv { _: [ 'add' ],
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '3.6.0',
+0 silly argv   '$0': '/usr/local/bin/lerna',
+0 silly argv   pkg: 'lerna-study-ui' }
+1 notice cli v3.6.0
+2 verbose rootPath /Users/gzeng/study/notes/lerna-study
+3 info versioning independent
+4 error Error: 404 Not Found - GET https://registry.npmjs.org/lerna-study-ui - Not found
+4 error     at res.buffer.catch.then.body (/Users/gzeng/study/notes/lerna-study/node_modules/npm-registry-fetch/check-response.js:104:15)
