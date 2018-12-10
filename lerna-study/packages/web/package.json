@@ -1,0 +1,11 @@
+{
+  "name": "web",
+  "version": "1.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "ui": "^1.0.2",
+    "utils": "^1.0.1"
+  }
+}
