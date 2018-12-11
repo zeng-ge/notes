@@ -23,12 +23,19 @@
  * lerna相关
  * --scope的作用就是过来过滤出目录包
  * lerna init初始化一个lerna工程，由package.json, lerna.json, packages组成
+ * lerna clean 移除各个包的node_modules
+ * lerna create 创建一个lerna管理的package, 如lerna create abc后packages/abc就出现了
+ * lerna diff 显示相对于上一次publish后，修改的内容，类似于git diff，但是它比较的对象是publish时的内容
  * lerna add dependentModule --scope=targetModule将依赖包添加到目标模块如将ui加到web
  *  --exact 添加依赖时用一个具体的版本号，如1.0.1而不是用~或^1.0.1
+ * lerna list列出所有的lerna包，不包含private: true的包
+ * lerna exec在每个包下面执行一个命令,--后面跟命令，如lerna exec -- ls列出每个包下的文件
+ * lerna link 为彼此依赖的lerna包建立符号链接， bootstrap时会用到
+ * lerna run 在每个包下面运行一个命令，如lerna run build,相当于在每个包下面运行npm run build
  * lerna bootstrap
  *  相当于
  *    1. npm install
- *    2. link彼此依赖的lerna包, link感觉就像硬连接，如web依赖ui, 修改ui中的文件,
+ *    2. 为彼此依赖的lerna包建立符号链接, link感觉就像硬连接，如web依赖ui, 修改ui中的文件,
  *        web/node_modules/ui里的文件也跟着变
  *    3. npm run prepublish 和 npm run prepare
  *
