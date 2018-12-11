@@ -1,11 +1,11 @@
 {
   "name": "web",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@lerna-study/utils": "^1.0.0",
-    "lerna-study-ui": "^1.0.3"
+    "@lerna-study/utils": "^1.0.1",
+    "lerna-study-ui": "^1.0.4"
   }
 }
