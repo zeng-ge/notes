@@ -33,7 +33,9 @@
  * lerna link 为彼此依赖的lerna包建立符号链接， bootstrap时会用到
  * lerna run 在每个包下面运行一个命令，如lerna run build,相当于在每个包下面运行npm run build
  * lerna version为修改的包升级版本,它会自动添加一个关于版本修改的git提交
- * leran changed会列出修改包的下一个版本号，还会更出那个包会publish
+ * lerna changed会列出修改包的下一个版本号，还会更出那个包会publish
+ * lerna publish发布包，它会用lerna version升级版本，还会将对应git版本存进package.json的gitHead
+ *  version, publish都是在git commit之后才会工作，否则它认为没有修改进而执行
  * lerna bootstrap
  *  相当于
  *    1. npm install
@@ -56,8 +58,6 @@
  *  cd moduleA & npm lint将moduleA加到了/global/node_modules
  *  cd productA & npm lint moduleA将projectA/node_modules/moduleA指向/global/node_modules
  *  这样productA就会直接访问本地的moduleA了
- *
- *
  *
 */
 const Form = require('lerna-study-ui/components/Form')
