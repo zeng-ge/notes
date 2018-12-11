@@ -33,6 +33,7 @@
  * lerna link 为彼此依赖的lerna包建立符号链接， bootstrap时会用到
  * lerna run 在每个包下面运行一个命令，如lerna run build,相当于在每个包下面运行npm run build
  * lerna version为修改的包升级版本,它会自动添加一个关于版本修改的git提交
+ * leran changed会列出修改包的下一个版本号，还会更出那个包会publish
  * lerna bootstrap
  *  相当于
  *    1. npm install
