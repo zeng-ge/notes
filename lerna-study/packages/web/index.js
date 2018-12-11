@@ -32,6 +32,7 @@
  * lerna exec在每个包下面执行一个命令,--后面跟命令，如lerna exec -- ls列出每个包下的文件
  * lerna link 为彼此依赖的lerna包建立符号链接， bootstrap时会用到
  * lerna run 在每个包下面运行一个命令，如lerna run build,相当于在每个包下面运行npm run build
+ * lerna version为修改的包升级版本,它会自动添加一个关于版本修改的git提交
  * lerna bootstrap
  *  相当于
  *    1. npm install
