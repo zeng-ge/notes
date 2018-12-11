@@ -1,6 +1,6 @@
 class Form{
   constructor(){
-    console.log('form constructor 1')
+    console.log('form constructor 1 2')
   }
 }
 
