@@ -6,6 +6,11 @@
     <button @click="onClick">count {{a.b.c}}</button>
     <!-- <div v-highlight>abc</div> -->
     <!-- <Counter /> -->
+    <Dynamic/>
+    <CustomRender>
+      <div>hello customRender</div>
+      <div>2</div>
+    </CustomRender>
   </div>
 </template>
 
@@ -15,12 +20,16 @@ import Welcome from './components/Welcome.js'
 // import TodoList from './components/TodoList.vue'
 // import Highlight from './components/Highlight.vue'
 // import Counter from './components/Counter.vue'
+import Dynamic from './components/Dynamic/'
+import CustomRender from './components/CustomRender'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld,
     abc: Welcome,
+    Dynamic,
+    CustomRender,
     // TodoList,
     // Counter
   },
