@@ -1,6 +1,6 @@
 export default class Person {
   name = null
   constructor() {
-    this.name = 'sky'
+    this.name = 'moon'
   }
 }
