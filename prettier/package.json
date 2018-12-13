@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prettier": "prettier --single-quote --trailing-comma none --no-semi --arrow-parens avoid --write \"src/**/*.js\"",
+    "prettier": "prettier --config .prettierrc.js --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
   "lint-staged": {
