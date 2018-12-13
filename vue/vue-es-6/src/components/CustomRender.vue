@@ -80,11 +80,17 @@ Vue.component('custom-component', {
     }
  *
  */
+import CustomTest from './CustomTest'
 export default {
+  name: 'ddd',
   render(createElement){
-    return createElement('custom-component', {
+    // return createElement('custom-component', {
+    //   props: { title: 'abc' }
+    // }, this.$slots.default)
+    return createElement(Vue.options.components['custom-component'], {
       props: { title: 'abc' }
     }, this.$slots.default)
+    // return createElement(CustomTest)
   }
 }
 </script>
