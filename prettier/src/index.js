@@ -24,7 +24,7 @@
 const a = 1,
   b = 2
 
-const name = 'tod'
+const name = ''
 
 const obj = { a: 'a' }
 
