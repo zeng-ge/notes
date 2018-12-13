@@ -5,17 +5,28 @@
   "license": "MIT",
   "scripts": {
     "prettier": "prettier --config .prettierrc.js --write \"src/**/*.js\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint --ext .js src/ --fix"
   },
   "lint-staged": {
     "src/**/*.js": [
+      "yarn lint",
       "yarn prettier",
       "git add"
     ]
   },
   "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "babel-eslint": "^10.0.1",
+    "eslint-plugin-prettier": "^3.0.0"
   }
 }

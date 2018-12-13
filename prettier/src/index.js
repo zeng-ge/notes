@@ -21,11 +21,15 @@
  * husky是加git hooks
  * prettier在工作时一般只需要对修改过的文件进行处理，lint-staged可以获取到修改的文件
  */
-const a = 1,
-  b = 2
+const a = 1
+
+const b = 2
 
 const name = ''
 
-const obj = { a: 'a' }
+export const obj = { a: 'a' }
 
-const fn = x => {}
+export const fn = x => {}
+
+console.log(a, b)
+console.log(name)
