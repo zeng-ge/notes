@@ -11,6 +11,8 @@ module.exports = {
      *
      * 用eslint跑prettier时发现Person.js错误怎么样也解决不了，决定还是分开跑
      * 先跑prettier，再跑lint
+     *
+     * 'plugin:prettier/recommended'同时使用config与plugin
      */
     // 'prettier',
     'standard'
