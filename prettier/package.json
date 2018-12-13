@@ -1,0 +1,21 @@
+{
+  "name": "prettier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier --single-quote --trailing-comma none --no-semi --arrow-parens avoid --write \"src/**/*.js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3"
+  }
+}
