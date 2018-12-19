@@ -11,6 +11,7 @@
       <div>hello customRender</div>
       <div>2</div>
     </CustomRender>
+    <router-view v-if="logined"></router-view>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Welcome from './components/Welcome.js'
 // import Counter from './components/Counter.vue'
 import Dynamic from './components/Dynamic/'
 import CustomRender from './components/CustomRender'
+import { setTimeout } from 'timers';
 
 export default {
   name: 'app',
@@ -43,11 +45,15 @@ export default {
           c: 1
         }
       },
-      count: 1
+      count: 1,
+      logined: false
     }
   },
   mounted: function() {
     console.log('app mounted')
+    setTimeout(() => {
+      this.logined = true
+    }, 2000)
   },
   methods: {
     onClick: function(){

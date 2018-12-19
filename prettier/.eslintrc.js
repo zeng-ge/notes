@@ -25,4 +25,10 @@ module.exports = {
   // rules: {
   //   'prettier/prettier': 'error'
   // }
+  rules: {
+    /**
+     * 不允许console出现，console.log报错,但是允许console.error
+     */
+    'no-console': ['error', {allow: ['error']}]
+  }
 }

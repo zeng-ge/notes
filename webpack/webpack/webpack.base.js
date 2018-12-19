@@ -151,7 +151,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin(),
+    // new VueLoaderPlugin(),
     new ManifestPlugin(),
     /**
      * 在编译时先清除dist目录
