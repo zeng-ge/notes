@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <div v-if="shouldIf">if</div>
     <abc />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <TodoList /> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <TodoList />
     <button @click="onClick">count {{a.b.c}}</button>
     <!-- <div v-highlight>abc</div> -->
     <!-- <Counter /> -->
@@ -11,6 +12,9 @@
       <div>hello customRender</div>
       <div>2</div>
     </CustomRender>
+    <ChildTest>
+      <!-- <div>slots default</div> -->
+    </ChildTest>
     <router-view v-if="logined"></router-view>
   </div>
 </template>
@@ -18,12 +22,13 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Welcome from './components/Welcome.js'
-// import TodoList from './components/TodoList.vue'
+import TodoList from './components/TodoList.vue'
 // import Highlight from './components/Highlight.vue'
 // import Counter from './components/Counter.vue'
 import Dynamic from './components/Dynamic/'
 import CustomRender from './components/CustomRender'
-import { setTimeout } from 'timers';
+import { setTimeout } from 'timers'
+import ChildTest from './components/ChildTest'
 
 export default {
   name: 'app',
@@ -32,7 +37,8 @@ export default {
     abc: Welcome,
     Dynamic,
     CustomRender,
-    // TodoList,
+    ChildTest,
+    TodoList,
     // Counter
   },
   // directives: {
@@ -40,6 +46,7 @@ export default {
   // },
   data: function(){
     return {
+      shouldIf: true,
       a: {
         b: {
           c: 1
@@ -57,6 +64,7 @@ export default {
   },
   methods: {
     onClick: function(){
+      this.shouldIf = !this.shouldIf
       this.a.b.c += 1
     }
   }
