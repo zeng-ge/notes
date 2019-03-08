@@ -16,10 +16,19 @@
       <!-- <div>slots default</div> -->
     </ChildTest>
     <router-view v-if="logined"></router-view>
+    <!-- <Dialog :visible="visible" title="abc" :appendToBody="visible">
+      dialog {{hello1}} {{hello}}
+    </Dialog> -->
+    <input type="text" v-model="a.b.c" />
+    <Modal :visible="visible">
+      <div>my modal {{a.b.c}}</div>
+    </Modal>
+    <Sms />
   </div>
 </template>
 
 <script>
+import 'element-ui/lib/theme-chalk/index.css'
 // import HelloWorld from './components/HelloWorld.vue'
 import Welcome from './components/Welcome.js'
 import TodoList from './components/TodoList.vue'
@@ -29,21 +38,36 @@ import Dynamic from './components/Dynamic/'
 import CustomRender from './components/CustomRender'
 import { setTimeout } from 'timers'
 import ChildTest from './components/ChildTest'
+import { Dialog } from 'element-ui'
+import Modal from './components/Modal'
+import Sms from './features/sms/containers/sms'
 
 export default {
   name: 'app',
   components: {
+    Sms,
     // HelloWorld,
     abc: Welcome,
     Dynamic,
     CustomRender,
     ChildTest,
     TodoList,
+    Dialog,
+    Modal,
     // Counter
   },
   // directives: {
   //   Highlight
   // },
+  minxi: [
+    {
+      computed: {
+        hello1: function(){
+          return 'abc'
+        }
+      }
+    }
+  ],
   data: function(){
     return {
       shouldIf: true,
@@ -53,7 +77,13 @@ export default {
         }
       },
       count: 1,
-      logined: false
+      logined: false,
+      visible: false
+    }
+  },
+  computed: {
+    hello: function(){
+      return 'ddd'
     }
   },
   mounted: function() {
@@ -66,6 +96,7 @@ export default {
     onClick: function(){
       this.shouldIf = !this.shouldIf
       this.a.b.c += 1
+      this.visible = true
     }
   }
 }

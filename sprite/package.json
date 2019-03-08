@@ -1,0 +1,30 @@
+{
+  "name": "router-configuration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zeng-ge/router-configuration.git",
+  "author": "gzeng",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "build:product": "ENV=production rollup -c"
+  },
+  "dependencies": {
+    "spritejs": "^2.27.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "cssnano": "^4.1.0",
+    "postcss": "^7.0.2",
+    "rollup": "^0.66.0",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-copy-glob": "^0.2.2",
+    "rollup-plugin-fill-html": "^1.1.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-scss": "^0.4.0",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "typescript": "^3.0.3"
+  }
+}
