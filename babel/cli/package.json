@@ -1,0 +1,19 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "babel": "babel",
+    "sit": "NODE_ENV=sit babel src --out-file build.js",
+    "uat": "BABEL_ENV=uat babel src --out-file build.js",
+    "prod": "babel src --out-file build.js --env-name prod"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3"
+  }
+}
