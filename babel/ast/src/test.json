@@ -1,0 +1,51 @@
+{
+    "implementationType": "app",
+    "crmId": "crm-1",
+    "crmName": "Warm Mocha Mont 12",
+    "warmUpStartDateTime": null,
+    "launchStartDateTime": "2017-12-31T16:00:00.000Z",
+    "launchEndDateTime": "2019-05-01T06:25:30.000Z",
+    "displayNameZh": "",
+    "displayNameEn": "",
+    "descriptionZh": "",
+    "descriptionEn": "",
+    "image": "144b83c1-a7d0-4267-ab3a-a4c97bb19517.jpeg",
+    "poster": "weqewqeqeqe.jpg",
+    "ruleDescriptionZh": "zh",
+    "ruleDescriptionEn": "en",
+    "taskType": "MULTI_TASK_OPTIONAL_REWARD",
+    "tasks": [{
+        "ruleNameZh": "rlz",
+        "ruleNameEn": "rle",
+        "rewardNameEn": "rewardEn",
+        "rewardNameZh": "rewardZh",
+        "rewardType": "GIFT",
+        "rewardImage": "ba35b630-2bf0-4b6d-b313-dba0fae9423e.png",
+        "rewardId": "123",
+        "rewards": [{
+            "rewardNameEn": "rewardEn",
+            "rewardNameZh": "rewardZh",
+            "rewardType": "GIFT",
+            "rewardImage": "ba35b630-2bf0-4b6d-b313-dba0fae9423e.png",
+            "rewardId": "123"
+        }],
+        "totalAmount": "10"
+    }, {
+        "ruleNameZh": "",
+        "ruleNameEn": "",
+        "rewardNameEn": "",
+        "rewardNameZh": "",
+        "rewardType": "GIFT",
+        "rewardId": "123",
+        "rewards": [{"rewardNameEn": "", "rewardNameZh": "", "rewardType": "GIFT", "rewardId": "123"}],
+        "totalAmount": "123"
+    }],
+    "reservationId": "1234",
+    "rewardExpireDateTime": "2020-02-20T16:00:00.000Z",
+    "reservationSystemAvailableDateTime": null,
+    "reservationEndDateTime": null,
+    "giftExchangeEndDateTime": null,
+    "ruleType": "SINGLE_SKU",
+    "singleSku": {"attributeName": "Cups", "image": "1b4c5142-1489-4db2-bea5-b369c04fe0ae.jpg"},
+    "criteria": {"type": "ALL"}
+}

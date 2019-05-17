@@ -1,10 +1,5 @@
-const getUser = () => {
-    return { name: 'sky' } 
-}
+import User from './User'
 
-class User{
-    name = 'abc'
-    say(){
-        console.log('hello world')
-    }
+const getUser = () => {
+    return new User('sky')
 }
