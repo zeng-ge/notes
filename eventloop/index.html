@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>React App</title>    
+  </head>
+  <body>
+    <div id="root" onclick="test()" style="height: 100px;">initial</div>
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript">
+      window.onerror = function(event){
+        console.log('onerror', event)
+      }
+      setTimeout(function(){
+        var eventTarget = new EventTarget()
+        eventTarget.addEventListener('build', event => {console.log('event', event)})
+        var event = document.createEvent('event')
+        event.initEvent('build', false, false)
+        eventTarget.dispatchEvent(event)
+      }, 10)
+    </script>
+  </body>
+</html>
