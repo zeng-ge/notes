@@ -64,6 +64,10 @@ public final class test {
 
 3. object类
 > object定义了一个单例类,方法加上@JvmStatic后方法为静态方法
+>
+> 函数会转成public final，字段会转成private static final通过一个public final方法来获取值
+>
+> 字段的获取与函数的调用最终会转成ObjectClass.INSTANCE的调用，即实例调用
 
 ```
 object StringUtils {
@@ -98,6 +102,8 @@ public final class StringUtils {
 
 4. data类
 > 参数必须为实例属性，定义时必须有var或val。自动生成get, set, copy, toString, hashCode方法。
+>
+> 每个字段除了get、 set方法外，还对应一个component方法（在解构时会用到）
 ```
 data class User(var name: String, var age: Int?, var address: String)
 编译结果:
@@ -218,6 +224,10 @@ public final class User {
 ```
 
 5. class里面定义companion object
+
+>companion object会编译成一个public static final class，字段会提供一个public final方法来访问，方法转成public final的，调用如a.abc会转成a.Companion.abc即由实例来调用
+
+
 ```
 class a {
     companion object{

@@ -3,7 +3,7 @@ package org.gzeng
 import kotlinx.coroutines.*
 
 fun main() {
-    println("coroutine begin")
+    println("coroutine begin, thead: ${Thread.currentThread().id}")
 
     GlobalScope.launch(Dispatchers.Unconfined) {
         println("coroutine launch start, thead: ${Thread.currentThread().id}")
@@ -16,7 +16,7 @@ fun main() {
         println("name: ${name} age: age")
     }
     println("coroutine end, thread: ${Thread.currentThread().id}")
-    Thread.sleep(2000)
+    Thread.sleep(500)
     println("Thread sleep")
 }
 

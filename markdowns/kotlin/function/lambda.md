@@ -13,7 +13,7 @@ max(strings, { a, b -> a.length < b.length })
 ## lambda的定义
 
 1. lambda表达示括在花括号里面
-2. 参数声明（包括参数类型）放在花括号内部
+2. 参数声明（包括参数类型）放在花括号内部, 多个参数不能用()括起来, 要解构的参数用()包起来
 3. 函数体跟在->后面
 4. 如果推断出lambda有返回值，那么最后一个表达示会作为返回值（如lambda赋值时的变量定义了返回类型）
 5. lambda内部带return时必须配合标记使用，否则编译器会报错（如return@wholeLambdaExpression）

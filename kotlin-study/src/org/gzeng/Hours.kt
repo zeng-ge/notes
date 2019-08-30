@@ -9,4 +9,21 @@ inline class Hours(val number: Int){
 fun main() {
     Hours(5).toMinutes()
     println(Hours(6).length)
+    CompanionObject.ddd()
+    println(CompanionObject.e)
+    ObjectClass.prin()
+}
+
+object ObjectClass{
+    val field1: String = "abc"
+    fun prin(){
+
+    }
+}
+
+class CompanionObject{
+    companion object{
+        val e: String = "ddd"
+        fun ddd() = 123
+    }
 }
