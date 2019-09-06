@@ -61,5 +61,5 @@ intent.setExtra("abc", data)
 setResult(intent, RESULT_CODE)
 finish()//关闭当前activity
 
-onBackPressed(){}//实现该方法监听back按据并处理
+onBackPressed(){}//实现该方法监听back按钮并处理
 ```

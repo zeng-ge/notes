@@ -82,7 +82,7 @@ fun receiverOld(initial: Receiver2.() -> Unit) {
 }
 
 /**
- * 作用域函数 let、0run、with、apply、also
+ * 作用域函数 let、run、with、apply、also
  * 在某个作用域下执行一个代码块
  * 它们的区别在于context的引用与返回值
  *

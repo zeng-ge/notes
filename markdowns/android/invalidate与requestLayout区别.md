@@ -2,7 +2,7 @@
 
 ## invalidate流程
 
-> invalidate首先将view及其所有父辈ViewGroup进行标记，直至ViewRootImpl，进而触发performTraversals, 进而倒至performDraw.
+> invalidate首先将view及其所有父辈ViewGroup进行标记，直至ViewRootImpl，进而触发performTraversals, 进而倒致performDraw.
 
 > 从DockerView从上而下调用updateDisplayListIfDirty来递归view，并根据view的标志位判断其是否需要重绘。通过view.draw或view.dispatchDraw来重绘view及viewGroup的所有children
 
@@ -105,7 +105,7 @@
     //这个view是DockerView, 而updateDisplayListIfDirty方法继承自View
     view.updateDisplayListIfDirty()
 -> View.updateDisplayListIfDirty
-    //如果己标记为invalidate, 在调用invalidate时将view及其所有父级标记了
+    //如果已标记为invalidate, 在调用invalidate时将view及其所有父级标记了
     if ((mPrivateFlags & PFLAG_DRAWING_CACHE_VALID) == 0
         || !renderNode.isValid()
         || (mRecreateDisplayList)) {

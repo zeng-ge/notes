@@ -30,7 +30,7 @@ registerReceiver(MyBoardcastReceiver(), intentFilter)
 unRegisterReciver(receiverInstance)
 ```
 
-> 表态注册
+> 静态注册
 ```kotlin
 在AndroidManifest.xml里面，在application下添加receiver:
 <receiver android:name=".receiver.BroadcastReceiver" android:exported="true" android:enabled="true">
@@ -44,7 +44,7 @@ enabled表示开启广播接收器
 
 ## 系统广播与本地广播
 ```kotlin
-系统文播所有的APP都能接收
+系统广播所有的APP都能接收
     调用activity的sendBroadcast(Intent)发送广播
     调用resigerReceiver(Receiver, IntentFilter)注册广播
 
