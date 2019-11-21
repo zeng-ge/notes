@@ -56,6 +56,9 @@ const ForEffect = () => {
   useEffect(() => {
     console.log('effect')
     setCount(1)
+    return () => {
+      console.log('clear up effect');
+    }
   })
   return (
     <div>hello {count}</div>
