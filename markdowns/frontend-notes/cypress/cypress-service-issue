@@ -1,0 +1,65 @@
+### 奇怪的cypress问题
+
+```javascript
+// services/storage.js定义如下：
+const tokens = {
+  access_token: '',
+  refresh_token: ''
+};
+//存放token
+export const saveTokens = (access_token, refresh_token) => {
+  tokens.access_token = access_token;
+  tokens.refresh_token = refresh_token;
+}
+
+//恢复token
+export const restoreTokens = () => {
+  cy.window().then(window => {
+    const localStorage = window.localStorage;
+    localStorage.setItem('access_token', tokens.access_token);
+    localStorage.setItem('refresh_token', tokens.refresh_token);
+  })
+}
+
+// login.js
+//获取token并调用saveTokens进行保存
+Cypress.Commands.add('login', () => {
+  const fakeLoginPage = new FakeLogin();
+  cy.visit('/fakeLogin/login.aspx')
+  cy.fixture('user')
+    .then(user => {
+      fakeLoginPage.typeUsername(user.email)
+      fakeLoginPage.login()
+    })
+  
+  cy.location().its('search')
+      .then(search => {
+        const querystring = require('querystring')
+        const map = querystring.parse(search.replace('?', ''))
+        saveTokens(map.access_token, map.refresh_token);
+      })
+})
+
+// login.spec.js
+// 在beforeEach中调用restoreTokens时tokens里面的数据还是空的，就好像saveTokens没调用一样
+// 就算把storage.js封成一个对象，export default new Storage()然后storage.restoreTokens()
+// 也无法解决数据保存不了的问题，就好像login.js与login.spec.js导入的是不同的对象
+beforeEach(()=>{
+  restoreTokens()
+})
+
+```
+
+### 解决方法
+
+``` javascript
+// 不在spec文件中直接调用service，通过命令的形式调用
+Cypress.Commands.add('restoreTokens', () => {
+  restoreTokens(); //这个时候beforeEach中的restoreTokens能正常的恢复数据
+})
+```
+
+
+
+
+

@@ -1,4 +1,6 @@
 # kotlin常用语法
+> var与val用来声明变量，var相当于let， val相当于const
+>
 > val的属性编译出来是final的，不能修改
 
 1. 定义类时，如果没加open，编译出来的结果是final类，不能继承。在kotlin中类默认是final的
@@ -278,7 +280,7 @@ fun Fruit.abc(str: String){
 val Fruit.length: Int
     get() = name.length
 编译结果：
-生成了一个亲的类，并且是静态方法，当Fruit().abc()调用时，能调到它，第一个参数默认是调用者。扩展属性同方法差不多，也是个静态方法
+生成了一个新的类，并且是静态方法，当Fruit().abc()调用时，能调到它，第一个参数默认是调用者。扩展属性同方法差不多，也是个静态方法
 public final class FruitKt {
    public static final void abc(@NotNull Fruit $this$abc, @NotNull String str) {
       Intrinsics.checkParameterIsNotNull($this$abc, "$this$abc");

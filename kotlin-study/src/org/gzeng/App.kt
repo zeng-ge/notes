@@ -23,7 +23,7 @@ fun main(arguments: Array<String>) {
     var b: A? = A()
     /***
      *  ?.是安全调用操作符，当调用者为null时直接返回null, 如a.b.c.d中a、b、c、d有任何一个不存在都返回null
-     *  ?:表示左则为非空时执行
+     *  ?:表示左则为null时执行
      */
     b?.isPassive()?.let {println("$it b ispassive")} ?: println("not passive")
     null ?: println("null")//左边为null就执行
