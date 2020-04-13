@@ -18,7 +18,7 @@
         ScanOperator.source = ofObservable
         ScanSubscriber.destination = mapSubscriber
         所有的Operator都是通过lift实现, 返回一个Observable，它包含一个具体的ScanOperator实例
-        ScanOperator会记录accumulator与seed，当subscribe时会执行call来实现     
+        ScanOperator会记录accumulator与seed，当subscribe时会执行call来实现
         function scan(accumulator, seed) {
             return this.lift(new ScanOperator(accumulator, seed));
         }
@@ -34,6 +34,13 @@
             };
             return ScanOperator;
         }());
+
+       Observable.prototype.lift = function (operator) {
+        var observable = new Observable();
+        observable.source = this;
+        observable.operator = operator;
+        return observable;
+        };
       */    
       var scan = of.scan(
         function(accumulator, next){
@@ -73,3 +80,42 @@
         console.log('double sum:' + value)
       });
       console.log(subscription);
+
+
+      function * generate(max){
+          for(var i = 1; i <= max; i++) {
+              yield i;
+          }
+      }
+      const yieldObservable = Rx.Observable.from(generate(3))
+    yieldObservable.subscribe(console.log)
+
+
+
+const fromObservable = Rx.Observable.from(['a', 'b', 'c'])
+// fromObservable
+//     .repeat(3)
+//     .subscribe(console.log)
+
+// fromObservable
+//     .repeatWhen(function(notifier){
+//         return notifier.delay(12000)
+//     })
+//     .subscribe(console.log)
+
+
+const rangeObservable = Rx.Observable.range(1, 5, Rx.Scheduler.asap)
+console.log('scheduler begin')
+rangeObservable.subscribe(console.log)
+console.log('scheduler end')
+
+
+
+Rx.Observable.from([1, 2, 3]).concatMap(value => {
+    return new Rx.Observable(observer => {
+        observer.next(`concat map -- ${value}`)
+        setTimeout(() => {
+            observer.complete()
+        }, 2000)
+    })
+}).subscribe(console.log)

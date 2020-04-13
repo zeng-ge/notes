@@ -65,3 +65,5 @@ function test() {
   channel.port1.postMessage('channel')
   root.innerHTML = 'hello test'
 }
+
+test();
