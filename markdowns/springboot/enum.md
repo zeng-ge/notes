@@ -35,3 +35,4 @@ System.out.println("=======>" + PlatformType.Android.ordinal());//得到序号�
 
 System.out.println("=======>" + PlatformType.Android.getDesc());//得到hello android
 ```
+
