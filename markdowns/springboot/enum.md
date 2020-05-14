@@ -2,6 +2,8 @@
 
 > Enum和普通的类区别不大，都可以定义构造器，方法，只不过它默认可以给定几个实例，toString默认是得到name, 而name就是枚举的名字（如这里的Android与IOS)
 
+> 两个枚举比较可以用 ==， 如PlatformType.IOS == a.getPlatformType
+
 ```java
 package com.mckinsey.business.school.domain;
 
@@ -35,4 +37,3 @@ System.out.println("=======>" + PlatformType.Android.ordinal());//得到序号�
 
 System.out.println("=======>" + PlatformType.Android.getDesc());//得到hello android
 ```
-
