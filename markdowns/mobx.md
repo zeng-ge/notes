@@ -1,23 +1,22 @@
 # mobx
 
+### mobx
+
+基本用法
+
+1. observable
+2. computed
+3. autorun
+4. reaction
+5. action
+
 ### 响应式原理
 
 1. defineProperty
 2. proxy
 
-#### 创建可监听数据
+### mobx-react
 
-1. observable
-2. computed
-
-### 监听数据
-
-1. autorun
-2. when
-3. reaction
-4. observer
-
-更新数据
-
-1. action
+1. observer
+2. provider
 
