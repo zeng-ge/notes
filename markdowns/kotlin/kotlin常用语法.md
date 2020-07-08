@@ -4,12 +4,12 @@
 > val的属性编译出来是final的，不能修改
 
 1. 定义类时，如果没加open，编译出来的结果是final类，不能继承。在kotlin中类默认是final的
-```
+```java
 构造器参数没加val与var的话是构造器的参数，但不会赋值
 init里面代码块会抽到构造器里面 
 ```
 2. open class，编译出来的结果没有final，可以继承。
-```
+```kotlin
 class Fruit(val name:String)
 编译结果为：如果加上open，编译结果没有final
 只生成get方法，构造器用了var或val时为实例属性
@@ -71,7 +71,7 @@ public final class test {
 >
 > 字段的获取与函数的调用最终会转成ObjectClass.INSTANCE的调用，即实例调用
 
-```
+```kotlin
 object StringUtils {
     @JvmStatic
     fun toUpperCase(str: String): String{
@@ -106,7 +106,7 @@ public final class StringUtils {
 > 参数必须为实例属性，定义时必须有var或val。自动生成get, set, copy, toString, hashCode方法。
 >
 > 每个字段除了get、 set方法外，还对应一个component方法（在解构时会用到）
-```
+```kotlin
 data class User(var name: String, var age: Int?, var address: String)
 编译结果:
 public final class User {
