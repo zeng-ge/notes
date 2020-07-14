@@ -37,8 +37,6 @@ cy.get('[data-testid=name]')
 })
 ```
 
-
-
 ### should写法
 
 > 上表左边的方法名或属性名组合成对应的should断言
@@ -48,18 +46,29 @@ cy.get('[data-testid=name]')
 #### 比较相关
 
 1. eq 和deep.eq
-
-#### 模糊匹配
-
-1. contain
+2. match.               正则匹配
+3. contain               字符串包含
 
 ``` javascript
 cy.get('[data-testid=name]')
   .parent().find('span:first-child')
+  .then(el => {
+  expect(el.text()).to.match(/^姓/)
+})
+
+/***
+     * eq 浅比较，类型不同时为false, 1 !== "1"
+     * deep.eq深比较
+     */
+cy.wrap(1).should('not.eq', "1").should('not.be.visible')
+cy.wrap("sky").should('eq', "sky")
+cy.wrap({ name: 'sky' }).should('deep.eq', { name: 'sky' })
+
+//判断内容是否包含了指定的信息
+cy.get('[data-testid=name]')
+  .parent().find('span:first-child')
   .should('contain', '姓')
 ```
-
-
 
 #### 方法相关
 
@@ -146,14 +155,6 @@ cy.get('.search-form .search-btn')
       })
       .should('visible')
       .should('be.visible')
-
-    /***
-     * eq 浅比较，类型不同时为false, 1 !== "1"
-     * deep.eq深比较
-     */
-    cy.wrap(1).should('not.eq', "1").should('not.be.visible')
-    cy.wrap("sky").should('eq', "sky")
-    cy.wrap({ name: 'sky' }).should('deep.eq', { name: 'sky' })
     
     /***
      * have.value获取input的value
