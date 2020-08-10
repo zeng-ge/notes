@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core'
 import { FormButton } from '../../../../components/FormButton';
+import User from 'src/app/services/user';
+import Salary from 'src/app/services/salary';
 
 @Component({
   selector: 'homepage',
@@ -10,6 +12,9 @@ import { FormButton } from '../../../../components/FormButton';
 export class Homepage{
   buttonText: string = 'input & output'
   buttonDesc: string = 'ddddd'
+  constructor(user: User, salary: Salary) {
+
+  }
   onClick(message: string): void {
     console.log('output', message)
   }

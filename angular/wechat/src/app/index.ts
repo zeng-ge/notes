@@ -9,6 +9,8 @@ import { Entry } from './features/entry/containers/Entry';
 import { Showing } from './components/Showing';
 import { Indicator } from './components/Indicator';
 import { FormButton } from './components/FormButton';
+import User from './services/user'
+import Salary from './services/salary'
 
 @NgModule({
   /**
@@ -27,7 +29,14 @@ import { FormButton } from './components/FormButton';
     BrowserModule,
     HomepageModule
   ],
-  providers: [],
+  providers: [
+    User,
+    {
+      provide: Salary, useFactory: () => {
+        console.log('useFactory')
+        return new Salary()
+    } }
+  ],
   bootstrap: [Entry]
 })
 export class AppModule { }

@@ -20,6 +20,8 @@
    > useEffect是在render之后的下一次DOM煊染之前执行，相当于requestAnimationFrame，useEffect本质是个异步操作
    >
    > useLayoutEffect也是在render之后执行，但是它是同步的，相当于在didMount、didUpdate的函数体内操作DOM
+   >
+   > useLayoutEffect在useEffect之前执行
 
    ```javascript
    render之后执行（等效componentDidMount、componentDidUpdate, componentWillUnmount)
@@ -58,12 +60,44 @@
 
 5. useCallback
 
+   > 要注意事件注册，通过react的onClick之类的事件注册会在每次更新时重新注册，这种不会有问题
+   >
+   > 如果在useEffect里面注册就会有问题了，由于useEffect会有依赖，并不能保存每次更新时事件的重新注册，此时事件函数取的就是老数据了，如下面的试例
+
    ```javascript
    const onClick = useCallback(() => {}, [id])
    //缓存一个函数，这样在id不变的情况下函数的引用是不变的
    
    //相当于
    const onClick = useMemo(() => callback, [id])
+   
+   /*
+    * 这里的onNodeClick与useEffect必须有相同的依赖，不然onNodeClick取到的数据可能就是老的
+   */
+   const onNodeClick = useCallback(
+     (event) => {
+       const node = event.target.data();
+       const { children } = node;
+       const hasChild = children && children.length > 0;
+       if (hasChild) {
+         const isNodeExpand = isExpand(node, visibleNodeEdges.edges);
+         const newNodeEdges = isNodeExpand
+         ? collapseNode(node, visibleNodeEdges)
+         : expandNode(node, visibleNodeEdges);
+         setNodeEdges(newNodeEdges);
+         drawByData(cy, transform(filterDataWithConfig(newNodeEdges, configs)), graphLayout, title);
+       }
+     },
+     [visibleNodeEdges],
+   );
+   
+   useEffect(() => {
+     cy && cy.on("tap", "node", onNodeClick);
+     return () => {
+       cy && cy.off("tap", "node", onNodeClick);
+     };
+   }, [visibleNodeEdges]);
+   
    ```
 
 6. useMemo
