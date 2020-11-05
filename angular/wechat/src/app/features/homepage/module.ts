@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { Homepage } from './containers/Homepage'
 import { FormButton } from '../../components/FormButton';
+import TemplateRefTest from './components'
 
 const routes: Routes = [
   { path: '', component: Homepage },
@@ -20,7 +21,7 @@ const routes: Routes = [
    * }
    * 然后在需要的Module里面单独导入
    */
-  declarations: [Homepage, FormButton],
+  declarations: [Homepage, FormButton, TemplateRefTest],
   imports: [RouterModule.forRoot(routes)],
   /**
    * export之前必须先declaration
