@@ -26,7 +26,7 @@ ViewChild参数详解
      providers: [NUMBER_VALUE_ACCESSOR]
    })
    export class NumberValueAccessor implements ControlValueAccessor {}
-   5. 模板相用
+   5. 模板引用
    @ChildView(TemplateRef)
    ```
 
