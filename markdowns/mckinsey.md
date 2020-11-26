@@ -1,10 +1,9 @@
-# mckinsey前端工程
+# 前端工程
 
 ### 环境搭建
 
 1. 安装Nodejs
 2. clone代码
->git clone it@ssh.dev.azure.com:v3/JKCo/cna-web-platform/cna-web-frontend
 3. 切换到src目录 `cd frontend-src`
 4. 安装依赖 `npm install`
 5. 安装E2E依赖 `cd e2e` 然后`npm install`
