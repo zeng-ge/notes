@@ -1,5 +1,5 @@
 <div>
-  app
-  <app-module-component></app-module-component>
+  <span (click)="onClick()">app {{title}}</span>
+  <app-module-component [hello]="title"></app-module-component>
   <router-outlet></router-outlet>
 </div>
