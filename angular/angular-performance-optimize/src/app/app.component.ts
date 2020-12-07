@@ -1,4 +1,5 @@
 import { Component, DoCheck } from '@angular/core';
+import { FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ export class AppComponent implements DoCheck{
   title = 'angular-performance-optimize';
   count = 0;
   takeUtilDestroy = true;
+  formControl: FormControl;
+  constructor(){
+    this.formControl = new FormControl()
+  }
   
   public ngDoCheck(): void {
     console.log('app component =>', this.count++)
