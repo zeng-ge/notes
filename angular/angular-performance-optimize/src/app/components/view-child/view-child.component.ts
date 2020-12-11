@@ -14,9 +14,9 @@ export class ViewChildComponent implements OnInit, DoCheck {
   constructor(private changeDefector: ChangeDetectorRef, private parent: ViewParentComponent) { }
 
   ngOnInit(): void {
-    // timer(2000).subscribe(()=>{
-    //   this.count++;
-    //   this.parent.count++; //父组件会更新
+    timer(2000).subscribe(()=>{
+      this.count++;
+      this.parent.count++; //父组件会更新
       /**
        * 在tick之前先标示需要更新
        * this.changeDefector.markForCheck()
@@ -26,8 +26,8 @@ export class ViewChildComponent implements OnInit, DoCheck {
       /**
        * 更新组件及其子组件(如果子组件本身是onPush，且input不变的话是不会触发子组件更新的)
        */
-      // this.changeDefector.detectChanges()
-    // })
+      this.changeDefector.detectChanges()
+    })
   }
 
   ngDoCheck(){
