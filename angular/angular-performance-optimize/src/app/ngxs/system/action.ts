@@ -3,4 +3,9 @@ export namespace System{
         static readonly type = 'MergeMacroTasks'
         constructor(){}
     }
+
+    export class SingleMacroTask{
+        static readonly type = 'SingleMacroTask'
+        constructor(){}
+    }
 }

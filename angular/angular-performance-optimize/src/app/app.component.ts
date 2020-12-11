@@ -2,6 +2,7 @@ import { Component, DoCheck, OnInit, NgZone, ChangeDetectorRef, ApplicationRef }
 import { FormControl } from '@angular/forms'
 import { Store } from '@ngxs/store';
 import { System } from './ngxs/system/action';
+import { SystemState } from './ngxs/system/state';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,14 @@ export class AppComponent implements OnInit, DoCheck{
       this.storeName = state.system.name
     })
 
-    this.store.dispatch(new System.MergeMacroTasks())  //只触发了一次tick
+    // this.store.dispatch(new System.MergeMacroTasks())  //只触发了一次tick
+
+    this.store.dispatch(new System.SingleMacroTask())
+    // this.store.dispatch([ // 触发3次
+    //   new System.SingleMacroTask(),
+    //   new System.SingleMacroTask(),
+    //   new System.SingleMacroTask()
+    // ]);
   }
 
   runInAngular(){

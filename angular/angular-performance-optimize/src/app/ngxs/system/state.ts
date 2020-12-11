@@ -1,5 +1,5 @@
 import { StateToken, State, Action, StateContext } from '@ngxs/store';
-import { Injectable } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 import { System } from './action';
 
 export interface SystemStateModel{
@@ -24,6 +24,20 @@ export class SystemState{
                 name: '123'
             })
         })    
+    }
+
+    @Action(System.SingleMacroTask)
+    singleMacroTask(ctx: StateContext<SystemStateModel>, action: System.MergeMacroTasks){
+        /***
+         * 触发两次tick:
+         * patchState执行完后在setState时会通过_executionStrategy.leave退出, leave会通过ngzone.run触发tick
+         */
+        return this.httpRequest()
+        .then(() => { 
+            ctx.patchState({ //每调用一次patchState就触发一次tick,调多次会触发多次tick
+                name: Math.random() + ''
+            })
+        })
     }
 
     async sendRequests() {
