@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, NgZone, ChangeDetectorRef, ApplicationRef } from '@angular/core';
+import { Component, DoCheck, OnInit, NgZone, ChangeDetectorRef, ApplicationRef, Renderer2 } from '@angular/core';
 import { FormControl } from '@angular/forms'
 import { Store } from '@ngxs/store';
 import { System } from './ngxs/system/action';
@@ -18,7 +18,8 @@ export class AppComponent implements OnInit, DoCheck{
   storeName: string;
   constructor(
     private ngZone: NgZone, 
-    private cdr: ChangeDetectorRef, 
+    private cdr: ChangeDetectorRef,
+    private render2: Renderer2,
     private applicationRef: ApplicationRef,
     private store: Store
   ){
@@ -41,6 +42,17 @@ export class AppComponent implements OnInit, DoCheck{
     //   new System.SingleMacroTask(),
     //   new System.SingleMacroTask()
     // ]);
+
+    this.ngZone.runOutsideAngular(() => {
+      const manualInputEl = this.render2.selectRootElement('#manualInput')
+      this.render2.listen(manualInputEl, 'input', () =>{
+  
+      })
+      this.render2.listen(manualInputEl, 'change', () =>{
+        this.applicationRef.tick()
+      })
+    })
+    
   }
 
   runInAngular(){
@@ -80,5 +92,13 @@ export class AppComponent implements OnInit, DoCheck{
 
   onClick(){
     this.takeUtilDestroy = false;
+  }
+
+  onInput(){
+
+  }
+
+  onChange(){
+
   }
 }
