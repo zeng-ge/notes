@@ -34,9 +34,17 @@ export class AppComponent implements OnInit, DoCheck{
       this.storeName = state.system.name
     })
 
+    this.ngZone.onMicrotaskEmpty.subscribe(() => {
+      console.log('==========>', this.count)
+    })
+
+
     // this.store.dispatch(new System.MergeMacroTasks())  //只触发了一次tick
 
-    this.store.dispatch(new System.SingleMacroTask())
+    // this.store.dispatch(new System.SingleMacroTask())
+    // this.store.dispatch(new System.SingleMacroTask())
+    // this.store.dispatch(new System.SingleMacroTask())
+
     // this.store.dispatch([ // 触发3次
     //   new System.SingleMacroTask(),
     //   new System.SingleMacroTask(),
@@ -45,7 +53,7 @@ export class AppComponent implements OnInit, DoCheck{
 
     this.ngZone.runOutsideAngular(() => {
       const manualInputEl = this.render2.selectRootElement('#manualInput')
-      this.render2.listen(manualInputEl, 'input', () =>{
+      this.render2.listen(manualInputEl, 'input', () =>{  
   
       })
       this.render2.listen(manualInputEl, 'change', () =>{
