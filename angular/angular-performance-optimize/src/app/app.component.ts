@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms'
 import { Store } from '@ngxs/store';
 import { System } from './ngxs/system/action';
 import { SystemState } from './ngxs/system/state';
+import { timer, throwError, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -59,6 +61,12 @@ export class AppComponent implements OnInit, DoCheck{
       this.render2.listen(manualInputEl, 'change', () =>{
         this.applicationRef.tick()
       })
+    })
+
+    of(1000).pipe(map(() => {
+      throw new Error('map error')
+    })).subscribe(() => {
+      console.log('subscribe')
     })
     
   }
