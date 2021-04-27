@@ -16,7 +16,7 @@
 
 2. APP_BOOTSTRAP_LISTENER
 
-   > 在模块启动后，加载根组件之前执行
+   > 在模块启动后，在app component init后执行
    
    ```
    PlatformRef.bootstrapModule() => appRef.bootstrap(f)
